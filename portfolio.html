@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ankala Gowtham Sai — AI & ML Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0b;
+  --surface:#111113;
+  --surface2:#1a1a1e;
+  --border:#252529;
+  --border2:#2e2e34;
+  --text:#f0f0f2;
+  --muted:#6b6b78;
+  --muted2:#9898a8;
+  --accent:#7c6af7;
+  --accent2:#a89cf8;
+  --green:#3ecf8e;
+  --tag-bg:#1c1c22;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  font-weight:300;
+  line-height:1.7;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* Noise overlay */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:.5;
+}
+
+/* Grid lines */
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:80px 80px;
+  opacity:.25;
+  pointer-events:none;z-index:0;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+  height:64px;
+  background:rgba(10,10,11,.85);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-family:'Syne',sans-serif;
+  font-weight:800;font-size:18px;
+  letter-spacing:-.02em;
+  color:var(--text);
+  text-decoration:none;
+}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{
+  font-size:13px;font-weight:400;
+  color:var(--muted);
+  text-decoration:none;letter-spacing:.04em;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{
+  font-size:13px;font-weight:500;
+  color:var(--accent2);
+  text-decoration:none;
+  border:1px solid var(--accent);
+  padding:7px 18px;
+  border-radius:6px;
+  transition:all .2s;
+  letter-spacing:.02em;
+}
+.nav-cta:hover{background:var(--accent);color:#fff}
+
+/* LAYOUT */
+main{
+  position:relative;z-index:1;
+  max-width:960px;
+  margin:0 auto;
+  padding:0 32px;
+}
+
+/* HERO */
+.hero{
+  padding:160px 0 100px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:24px;
+}
+.hero-eyebrow{
+  display:flex;align-items:center;gap:10px;
+  font-size:12px;letter-spacing:.12em;
+  color:var(--muted2);text-transform:uppercase;
+  font-weight:500;
+}
+.hero-eyebrow::before{
+  content:'';display:block;
+  width:24px;height:1px;background:var(--accent);
+}
+.hero-name{
+  font-family:'Syne',sans-serif;
+  font-weight:800;
+  font-size:clamp(52px,8vw,84px);
+  line-height:1;
+  letter-spacing:-.04em;
+  color:var(--text);
+}
+.hero-name span{color:var(--accent2)}
+.hero-desc{
+  font-size:17px;font-weight:300;
+  color:var(--muted2);
+  max-width:520px;
+  line-height:1.75;
+}
+.hero-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}
+.hero-link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:500;
+  color:var(--muted2);text-decoration:none;
+  border:1px solid var(--border2);
+  padding:9px 20px;border-radius:6px;
+  transition:all .2s;letter-spacing:.02em;
+}
+.hero-link:hover{border-color:var(--accent);color:var(--accent2)}
+.hero-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:500;
+  color:var(--green);letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.hero-badge::before{
+  content:'';width:6px;height:6px;
+  background:var(--green);border-radius:50%;
+  box-shadow:0 0 8px var(--green);
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* SECTION */
+.section{padding:80px 0;border-top:1px solid var(--border)}
+.section-label{
+  font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);
+  font-weight:500;margin-bottom:40px;
+}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.about-text{font-size:16px;color:var(--muted2);line-height:1.8}
+.about-text p+p{margin-top:16px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:20px;
+}
+.stat-num{
+  font-family:'Syne',sans-serif;
+  font-weight:700;font-size:32px;
+  color:var(--text);line-height:1;
+  letter-spacing:-.03em;
+}
+.stat-num span{color:var(--accent2)}
+.stat-label{font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:.04em}
+
+/* PROJECTS */
+.projects-grid{display:grid;gap:16px}
+.project-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:28px 32px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:start;
+  gap:24px;
+  text-decoration:none;
+  transition:all .25s;
+  position:relative;overflow:hidden;
+}
+.project-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(124,106,247,.04),transparent 50%);
+  opacity:0;transition:opacity .25s;
+}
+.project-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.project-card:hover::before{opacity:1}
+.project-num{
+  font-family:'Syne',sans-serif;
+  font-size:11px;font-weight:700;
+  color:var(--muted);letter-spacing:.1em;
+  margin-bottom:12px;
+}
+.project-title{
+  font-family:'Syne',sans-serif;
+  font-weight:700;font-size:18px;
+  color:var(--text);letter-spacing:-.02em;
+  margin-bottom:8px;
+}
+.project-desc{font-size:14px;color:var(--muted2);line-height:1.7;margin-bottom:16px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{
+  font-size:11px;font-weight:500;
+  color:var(--muted2);letter-spacing:.04em;
+  background:var(--tag-bg);
+  border:1px solid var(--border);
+  padding:4px 10px;border-radius:4px;
+}
+.project-arrow{
+  color:var(--muted);font-size:20px;
+  transition:all .2s;margin-top:2px;
+}
+.project-card:hover .project-arrow{color:var(--accent2);transform:translate(2px,-2px)}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skill-group{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:20px 22px;
+}
+.skill-group-label{
+  font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--accent2);font-weight:600;
+  margin-bottom:12px;
+}
+.skill-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.skill-list li{
+  font-size:13px;color:var(--muted2);
+  display:flex;align-items:center;gap:8px;
+}
+.skill-list li::before{content:'·';color:var(--accent);font-size:16px}
+
+/* EDUCATION */
+.edu-grid{display:grid;gap:12px}
+.edu-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:22px 26px;
+  display:grid;grid-template-columns:1fr auto;
+  align-items:start;gap:16px;
+}
+.edu-school{font-family:'Syne',sans-serif;font-weight:700;font-size:16px;color:var(--text);margin-bottom:4px}
+.edu-degree{font-size:13px;color:var(--muted2)}
+.edu-year{font-size:12px;color:var(--muted);white-space:nowrap;letter-spacing:.04em}
+
+/* CERTIFICATIONS */
+.cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cert-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:18px 22px;
+}
+.cert-name{font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px}
+.cert-issuer{font-size:12px;color:var(--muted)}
+
+/* CONTACT */
+.contact-wrap{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:40px;align-items:center;
+}
+.contact-heading{
+  font-family:'Syne',sans-serif;
+  font-weight:800;font-size:clamp(32px,5vw,52px);
+  line-height:1.1;letter-spacing:-.03em;
+}
+.contact-heading span{color:var(--accent2)}
+.contact-links{display:flex;flex-direction:column;gap:12px}
+.contact-link{
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:14px;color:var(--muted2);
+  text-decoration:none;
+  border:1px solid var(--border);
+  padding:14px 20px;border-radius:8px;
+  transition:all .2s;
+}
+.contact-link:hover{border-color:var(--accent);color:var(--accent2)}
+.contact-link-label{font-weight:500;color:var(--text);font-size:13px;margin-bottom:2px}
+
+/* FOOTER */
+footer{
+  position:relative;z-index:1;
+  border-top:1px solid var(--border);
+  padding:24px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:12px;color:var(--muted);
+}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:700px){
+  nav{padding:0 20px}
+  main{padding:0 20px}
+  .hero{padding:120px 0 60px}
+  .about-grid,.contact-wrap{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .cert-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .stat-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">AGS</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="mailto:ankalagowthamsai2005@gmail.com">Hire Me →</a>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="fade-up">
+      <div class="hero-eyebrow">AI & Machine Learning Engineer</div>
+    </div>
+    <div class="fade-up" style="transition-delay:.08s">
+      <h1 class="hero-name">Ankala<br/><span>Gowtham Sai</span></h1>
+    </div>
+    <div class="fade-up" style="transition-delay:.16s">
+      <p class="hero-desc">Building intelligent systems at the intersection of machine learning, automation, and agentic AI. Based in Hyderabad, India.</p>
+    </div>
+    <div class="fade-up" style="transition-delay:.24s">
+      <div class="hero-links">
+        <a class="hero-link" href="https://github.com/Gowtham-4256" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a class="hero-link" href="https://linkedin.com/in/gowtham-sai-238r1" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a class="hero-link" href="mailto:ankalagowthamsai2005@gmail.com">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </a>
+        <span class="hero-badge">Open to Opportunities</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section fade-up" id="about">
+    <p class="section-label">About</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm an AI & ML engineering student at CMR Engineering College (B.Tech, CSE — AI&ML, Class of 2027), passionate about building end-to-end intelligent systems that solve real problems.</p>
+        <p>From predictive maintenance pipelines to LLM-powered recruitment tools, I love taking ideas from research to working products. I've also completed a certified program in Product Management & Agentic AI from IIT Patna.</p>
+        <p>I'm certified in Generative AI (Google Cloud) and have hands-on experience with Python, XGBoost, n8n, and modern LLM APIs.</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-num">3<span>+</span></div>
+          <div class="stat-label">Projects Shipped</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">4<span>+</span></div>
+          <div class="stat-label">Certifications</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">2<span>yr</span></div>
+          <div class="stat-label">ML Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">2027</div>
+          <div class="stat-label">Graduating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section fade-up" id="projects">
+    <p class="section-label">Selected Projects</p>
+    <div class="projects-grid">
+
+      <a class="project-card" href="https://github.com/Gowtham-4256" target="_blank">
+        <div>
+          <div class="project-num">01</div>
+          <div class="project-title">Predictive Maintenance System</div>
+          <div class="project-desc">Developed an XGBoost model with hyperparameter optimization to predict industrial machine failures before they occur — improving accuracy over baseline classifiers on imbalanced datasets.</div>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">XGBoost</span>
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">NumPy</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+      <a class="project-card" href="https://github.com/Gowtham-4256" target="_blank">
+        <div>
+          <div class="project-num">02</div>
+          <div class="project-title">RECRUIT-AI — Resume Screening Assistant</div>
+          <div class="project-desc">Automated end-to-end recruitment pipeline using n8n webhooks, PDF extraction, and LLM APIs to ingest, normalize, and evaluate candidate resumes with structured output.</div>
+          <div class="tags">
+            <span class="tag">n8n</span>
+            <span class="tag">LLM API</span>
+            <span class="tag">Webhooks</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML Email</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+      <a class="project-card" href="https://github.com/Gowtham-4256" target="_blank">
+        <div>
+          <div class="project-num">03</div>
+          <div class="project-title">SUBSENTRY — Subscription Tracker</div>
+          <div class="project-desc">Built a web MVP that tracks recurring subscriptions and prevents hidden renewal charges, featuring a real-time dashboard for monthly and yearly spend visibility.</div>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Dashboard UI</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section fade-up" id="skills">
+    <p class="section-label">Skills</p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-label">Languages</div>
+        <ul class="skill-list">
+          <li>Python</li>
+          <li>C &amp; C++</li>
+          <li>Java</li>
+          <li>JavaScript</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">ML / AI</div>
+        <ul class="skill-list">
+          <li>Scikit-learn</li>
+          <li>XGBoost</li>
+          <li>Pandas &amp; NumPy</li>
+          <li>LLM APIs</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Automation</div>
+        <ul class="skill-list">
+          <li>n8n Workflows</li>
+          <li>Webhooks</li>
+          <li>Agentic AI</li>
+          <li>Arduino</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Web &amp; DB</div>
+        <ul class="skill-list">
+          <li>HTML &amp; CSS</li>
+          <li>MySQL</li>
+          <li>DBMS Concepts</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Product &amp; Tools</div>
+        <ul class="skill-list">
+          <li>Agile / Scrum</li>
+          <li>Roadmapping</li>
+          <li>Git</li>
+          <li>MS Office</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Soft Skills</div>
+        <ul class="skill-list">
+          <li>Communication</li>
+          <li>Teamwork</li>
+          <li>Problem Solving</li>
+          <li>Adaptability</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section fade-up" id="education">
+    <p class="section-label">Education</p>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div>
+          <div class="edu-school">CMR Engineering College</div>
+          <div class="edu-degree">B.Tech — Computer Science & Engineering (AI &amp; ML) · Hyderabad</div>
+        </div>
+        <div class="edu-year">2023 – 2027</div>
+      </div>
+      <div class="edu-card">
+        <div>
+          <div class="edu-school">Vishlesan i-Hub, IIT Patna</div>
+          <div class="edu-degree">Certificate — Product Management &amp; Agentic AI · Bengaluru</div>
+        </div>
+        <div class="edu-year">2025 – 2026</div>
+      </div>
+    </div>
+
+    <p class="section-label" style="margin-top:40px">Certifications</p>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-name">Deploy &amp; Manage Generative AI Models</div>
+        <div class="cert-issuer">Google Cloud Career Launchpad · 2025</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-name">Java Programming</div>
+        <div class="cert-issuer">Spoken Tutorial Project, IIT Bombay · 2024</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-name">Python Programming</div>
+        <div class="cert-issuer">Spoken Tutorial Project, IIT Bombay · 2024</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-name">R Programming</div>
+        <div class="cert-issuer">Coursera · 2024</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section fade-up" id="contact">
+    <p class="section-label">Contact</p>
+    <div class="contact-wrap">
+      <div class="contact-heading">Let's build<br/>something<br/><span>together.</span></div>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:ankalagowthamsai2005@gmail.com">
+          <div>
+            <div class="contact-link-label">Email</div>
+            <div>ankalagowthamsai2005@gmail.com</div>
+          </div>
+          <span>↗</span>
+        </a>
+        <a class="contact-link" href="https://linkedin.com/in/gowtham-sai-238r1" target="_blank">
+          <div>
+            <div class="contact-link-label">LinkedIn</div>
+            <div>gowtham-sai-238r1</div>
+          </div>
+          <span>↗</span>
+        </a>
+        <a class="contact-link" href="https://github.com/Gowtham-4256" target="_blank">
+          <div>
+            <div class="contact-link-label">GitHub</div>
+            <div>Gowtham-4256</div>
+          </div>
+          <span>↗</span>
+        </a>
+        <a class="contact-link" href="tel:+918143669910">
+          <div>
+            <div class="contact-link-label">Phone</div>
+            <div>+91 8143669910</div>
+          </div>
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>© 2025 Ankala Gowtham Sai</span>
+  <span>Hyderabad, Telangana, India</span>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}});
+},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
