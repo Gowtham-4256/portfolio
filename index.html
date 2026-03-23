@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Ankala Gowtham Sai — AI & ML Engineer</title>
+<title>Ankala Gowtham Sai &mdash; AI &amp; ML Engineer</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -15,6 +15,8 @@ body{
   line-height:1.7;
   min-height:100vh;
 }
+
+/* NAV */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
@@ -24,25 +26,33 @@ nav{
 }
 .nav-logo{font-weight:800;font-size:18px;color:#f0f0f2;text-decoration:none;letter-spacing:-.02em}
 .nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{font-size:13px;color:#6b6b78;text-decoration:none;letter-spacing:.04em;transition:color .2s}
+.nav-links a{font-size:13px;color:#6b6b78;text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:#f0f0f2}
 .nav-cta{font-size:13px;font-weight:500;color:#a89cf8;text-decoration:none;border:1px solid #7c6af7;padding:7px 18px;border-radius:6px;transition:all .2s}
 .nav-cta:hover{background:#7c6af7;color:#fff}
+
+/* LAYOUT */
 main{max-width:960px;margin:0 auto;padding:0 32px}
+
+/* HERO */
 .hero{padding:160px 0 100px;display:grid;gap:24px}
 .hero-eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.12em;color:#9898a8;text-transform:uppercase;font-weight:500}
 .hero-eyebrow::before{content:'';display:block;width:24px;height:1px;background:#7c6af7}
 .hero-name{font-weight:800;font-size:clamp(52px,8vw,84px);line-height:1;letter-spacing:-.04em;color:#f0f0f2}
 .hero-name span{color:#a89cf8}
-.hero-desc{font-size:17px;font-weight:300;color:#9898a8;max-width:520px;line-height:1.75}
-.hero-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}
+.hero-desc{font-size:17px;color:#9898a8;max-width:520px;line-height:1.75}
+.hero-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;align-items:center}
 .hero-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:#9898a8;text-decoration:none;border:1px solid #2e2e34;padding:9px 20px;border-radius:6px;transition:all .2s}
 .hero-link:hover{border-color:#7c6af7;color:#a89cf8}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;color:#3ecf8e;letter-spacing:.06em;text-transform:uppercase;align-self:center}
-.hero-badge::before{content:'';width:6px;height:6px;background:#3ecf8e;border-radius:50%;animation:pulse 2s ease-in-out infinite}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;color:#3ecf8e;letter-spacing:.06em;text-transform:uppercase}
+.dot{width:6px;height:6px;background:#3ecf8e;border-radius:50%;display:inline-block;animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* SECTIONS */
 .section{padding:80px 0;border-top:1px solid #252529}
 .section-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#6b6b78;font-weight:500;margin-bottom:40px}
+
+/* ABOUT */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
 .about-text{font-size:15px;color:#9898a8;line-height:1.8}
 .about-text p+p{margin-top:16px}
@@ -50,7 +60,9 @@ main{max-width:960px;margin:0 auto;padding:0 32px}
 .stat-card{background:#111113;border:1px solid #252529;border-radius:10px;padding:20px}
 .stat-num{font-weight:800;font-size:32px;color:#f0f0f2;line-height:1;letter-spacing:-.03em}
 .stat-num span{color:#a89cf8}
-.stat-label{font-size:12px;color:#6b6b78;margin-top:4px;letter-spacing:.04em}
+.stat-label{font-size:12px;color:#6b6b78;margin-top:4px}
+
+/* PROJECTS */
 .projects-grid{display:grid;gap:16px}
 .project-card{background:#111113;border:1px solid #252529;border-radius:12px;padding:28px 32px;display:grid;grid-template-columns:1fr auto;align-items:start;gap:24px;text-decoration:none;transition:all .25s}
 .project-card:hover{border-color:#2e2e34;transform:translateY(-2px)}
@@ -59,23 +71,31 @@ main{max-width:960px;margin:0 auto;padding:0 32px}
 .project-desc{font-size:14px;color:#9898a8;line-height:1.7;margin-bottom:16px}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tag{font-size:11px;font-weight:500;color:#9898a8;background:#1c1c22;border:1px solid #252529;padding:4px 10px;border-radius:4px}
-.project-arrow{color:#6b6b78;font-size:20px;transition:all .2s;margin-top:2px}
+.project-arrow{color:#6b6b78;font-size:20px;transition:all .2s}
 .project-card:hover .project-arrow{color:#a89cf8;transform:translate(2px,-2px)}
+
+/* SKILLS */
 .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .skill-group{background:#111113;border:1px solid #252529;border-radius:10px;padding:20px 22px}
 .skill-group-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a89cf8;font-weight:600;margin-bottom:12px}
 .skill-list{list-style:none;display:flex;flex-direction:column;gap:6px}
 .skill-list li{font-size:13px;color:#9898a8;display:flex;align-items:center;gap:8px}
-.skill-list li::before{content:'·';color:#7c6af7;font-size:16px}
+.skill-list li::before{content:'·';color:#7c6af7;font-size:18px;line-height:1}
+
+/* EDUCATION */
 .edu-grid{display:grid;gap:12px}
 .edu-card{background:#111113;border:1px solid #252529;border-radius:10px;padding:22px 26px;display:grid;grid-template-columns:1fr auto;align-items:start;gap:16px}
 .edu-school{font-weight:700;font-size:16px;color:#f0f0f2;margin-bottom:4px}
 .edu-degree{font-size:13px;color:#9898a8}
 .edu-year{font-size:12px;color:#6b6b78;white-space:nowrap}
-.cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* CERTS */
+.cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
 .cert-card{background:#111113;border:1px solid #252529;border-radius:10px;padding:18px 22px}
 .cert-name{font-size:14px;font-weight:500;color:#f0f0f2;margin-bottom:4px}
 .cert-issuer{font-size:12px;color:#6b6b78}
+
+/* CONTACT */
 .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
 .contact-heading{font-weight:800;font-size:clamp(32px,5vw,52px);line-height:1.1;letter-spacing:-.03em;color:#f0f0f2}
 .contact-heading span{color:#a89cf8}
@@ -83,9 +103,11 @@ main{max-width:960px;margin:0 auto;padding:0 32px}
 .contact-link{display:flex;align-items:center;justify-content:space-between;font-size:14px;color:#9898a8;text-decoration:none;border:1px solid #252529;padding:14px 20px;border-radius:8px;transition:all .2s}
 .contact-link:hover{border-color:#7c6af7;color:#a89cf8}
 .contact-link-label{font-weight:500;color:#f0f0f2;font-size:13px;margin-bottom:2px}
+
+/* FOOTER */
 footer{border-top:1px solid #252529;padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#6b6b78}
-.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
-.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
 @media(max-width:700px){
   nav{padding:0 20px}
   .nav-links{display:none}
@@ -94,6 +116,7 @@ footer{border-top:1px solid #252529;padding:24px 48px;display:flex;align-items:c
   .about-grid,.contact-wrap{grid-template-columns:1fr}
   .skills-grid{grid-template-columns:1fr 1fr}
   .cert-grid{grid-template-columns:1fr}
+  footer{padding:20px}
 }
 </style>
 </head>
@@ -113,31 +136,25 @@ footer{border-top:1px solid #252529;padding:24px 48px;display:flex;align-items:c
 
 <main>
 
+  <!-- HERO -->
   <section class="hero">
-    <div class="fade-up">
-      <div class="hero-eyebrow">AI &amp; Machine Learning Engineer</div>
-    </div>
-    <div class="fade-up" style="transition-delay:.08s">
-      <h1 class="hero-name">Ankala<br/><span>Gowtham Sai</span></h1>
-    </div>
-    <div class="fade-up" style="transition-delay:.16s">
-      <p class="hero-desc">Building intelligent systems at the intersection of machine learning, automation, and agentic AI. Based in Hyderabad, India.</p>
-    </div>
-    <div class="fade-up" style="transition-delay:.24s">
-      <div class="hero-links">
-        <a class="hero-link" href="https://github.com/Gowtham-4256" target="_blank">GitHub</a>
-        <a class="hero-link" href="https://linkedin.com/in/gowtham-sai-238r1" target="_blank">LinkedIn</a>
-        <a class="hero-link" href="mailto:ankalagowthamsai2005@gmail.com">Email</a>
-        <span class="hero-badge">Open to Opportunities</span>
-      </div>
+    <div class="hero-eyebrow">AI &amp; Machine Learning Engineer</div>
+    <h1 class="hero-name">Ankala<br><span>Gowtham Sai</span></h1>
+    <p class="hero-desc">Building intelligent systems at the intersection of machine learning, automation, and agentic AI. Based in Hyderabad, India.</p>
+    <div class="hero-links">
+      <a class="hero-link" href="https://github.com/Gowtham-4256" target="_blank">GitHub</a>
+      <a class="hero-link" href="https://linkedin.com/in/gowtham-sai-238r1" target="_blank">LinkedIn</a>
+      <a class="hero-link" href="mailto:ankalagowthamsai2005@gmail.com">Email</a>
+      <span class="hero-badge"><span class="dot"></span>&nbsp;Open to Opportunities</span>
     </div>
   </section>
 
-  <section class="section fade-up" id="about">
+  <!-- ABOUT -->
+  <section class="section" id="about">
     <p class="section-label">About</p>
     <div class="about-grid">
       <div class="about-text">
-        <p>I'm an AI &amp; ML engineering student at CMR Engineering College (B.Tech, CSE &mdash; AI&amp;ML, Class of 2027), passionate about building end-to-end intelligent systems that solve real problems.</p>
+        <p>I'm an AI &amp; ML engineering student at CMR Engineering College (B.Tech, CSE &mdash; AI &amp; ML, Class of 2027), passionate about building intelligent systems that solve real problems.</p>
         <p>From predictive maintenance pipelines to LLM-powered recruitment tools, I love taking ideas from research to working products. I've also completed a certified program in Product Management &amp; Agentic AI from IIT Patna.</p>
         <p>Certified in Generative AI (Google Cloud) with hands-on experience in Python, XGBoost, n8n, and modern LLM APIs.</p>
       </div>
@@ -150,70 +167,105 @@ footer{border-top:1px solid #252529;padding:24px 48px;display:flex;align-items:c
     </div>
   </section>
 
-  <section class="section fade-up" id="projects">
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
     <p class="section-label">Selected Projects</p>
     <div class="projects-grid">
+
       <a class="project-card" href="https://github.com/Gowtham-4256" target="_blank">
         <div>
           <div class="project-num">01</div>
           <div class="project-title">Predictive Maintenance System</div>
           <div class="project-desc">XGBoost model with hyperparameter optimization to predict industrial machine failures before they occur &mdash; improving accuracy over baseline classifiers on imbalanced datasets.</div>
-          <div class="tags"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">Scikit-learn</span><span class="tag">Pandas</span><span class="tag">NumPy</span></div>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">XGBoost</span>
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">NumPy</span>
+          </div>
         </div>
         <div class="project-arrow">&#8599;</div>
       </a>
+
       <a class="project-card" href="https://github.com/Gowtham-4256" target="_blank">
         <div>
           <div class="project-num">02</div>
           <div class="project-title">RECRUIT-AI &mdash; Resume Screening Assistant</div>
           <div class="project-desc">Automated recruitment pipeline using n8n webhooks, PDF extraction, and LLM APIs to ingest, normalize, and evaluate candidate resumes with structured output.</div>
-          <div class="tags"><span class="tag">n8n</span><span class="tag">LLM API</span><span class="tag">Webhooks</span><span class="tag">JavaScript</span></div>
+          <div class="tags">
+            <span class="tag">n8n</span>
+            <span class="tag">LLM API</span>
+            <span class="tag">Webhooks</span>
+            <span class="tag">JavaScript</span>
+          </div>
         </div>
         <div class="project-arrow">&#8599;</div>
       </a>
+
       <a class="project-card" href="https://github.com/Gowtham-4256" target="_blank">
         <div>
           <div class="project-num">03</div>
           <div class="project-title">SUBSENTRY &mdash; Subscription Tracker MVP</div>
           <div class="project-desc">Web app to track recurring subscriptions and prevent hidden renewal charges, with a real-time dashboard for monthly and yearly spend visibility.</div>
-          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Dashboard UI</span></div>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Dashboard UI</span>
+          </div>
         </div>
         <div class="project-arrow">&#8599;</div>
       </a>
+
     </div>
   </section>
 
-  <section class="section fade-up" id="skills">
+  <!-- SKILLS -->
+  <section class="section" id="skills">
     <p class="section-label">Skills</p>
     <div class="skills-grid">
       <div class="skill-group">
         <div class="skill-group-label">Languages</div>
-        <ul class="skill-list"><li>Python</li><li>C &amp; C++</li><li>Java</li><li>JavaScript</li></ul>
+        <ul class="skill-list">
+          <li>Python</li><li>C &amp; C++</li><li>Java</li><li>JavaScript</li>
+        </ul>
       </div>
       <div class="skill-group">
         <div class="skill-group-label">ML / AI</div>
-        <ul class="skill-list"><li>Scikit-learn</li><li>XGBoost</li><li>Pandas &amp; NumPy</li><li>LLM APIs</li></ul>
+        <ul class="skill-list">
+          <li>Scikit-learn</li><li>XGBoost</li><li>Pandas &amp; NumPy</li><li>LLM APIs</li>
+        </ul>
       </div>
       <div class="skill-group">
         <div class="skill-group-label">Automation</div>
-        <ul class="skill-list"><li>n8n Workflows</li><li>Webhooks</li><li>Agentic AI</li><li>Arduino</li></ul>
+        <ul class="skill-list">
+          <li>n8n Workflows</li><li>Webhooks</li><li>Agentic AI</li><li>Arduino</li>
+        </ul>
       </div>
       <div class="skill-group">
         <div class="skill-group-label">Web &amp; DB</div>
-        <ul class="skill-list"><li>HTML &amp; CSS</li><li>MySQL</li><li>DBMS Concepts</li></ul>
+        <ul class="skill-list">
+          <li>HTML &amp; CSS</li><li>MySQL</li><li>DBMS Concepts</li>
+        </ul>
       </div>
       <div class="skill-group">
         <div class="skill-group-label">Product &amp; Tools</div>
-        <ul class="skill-list"><li>Agile / Scrum</li><li>Roadmapping</li><li>Git</li><li>MS Office</li></ul>
+        <ul class="skill-list">
+          <li>Agile / Scrum</li><li>Roadmapping</li><li>Git</li><li>MS Office</li>
+        </ul>
       </div>
       <div class="skill-group">
         <div class="skill-group-label">Soft Skills</div>
-        <ul class="skill-list"><li>Communication</li><li>Teamwork</li><li>Problem Solving</li><li>Adaptability</li></ul>
+        <ul class="skill-list">
+          <li>Communication</li><li>Teamwork</li><li>Problem Solving</li><li>Adaptability</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <section class="section fade-up" id="education">
+  <!-- EDUCATION -->
+  <section class="section" id="education">
     <p class="section-label">Education</p>
     <div class="edu-grid">
       <div class="edu-card">
@@ -231,31 +283,49 @@ footer{border-top:1px solid #252529;padding:24px 48px;display:flex;align-items:c
         <div class="edu-year">2025 &ndash; 2026</div>
       </div>
     </div>
+
     <p class="section-label" style="margin-top:40px">Certifications</p>
     <div class="cert-grid">
-      <div class="cert-card"><div class="cert-name">Deploy &amp; Manage Generative AI Models</div><div class="cert-issuer">Google Cloud Career Launchpad &middot; 2025</div></div>
-      <div class="cert-card"><div class="cert-name">Java Programming</div><div class="cert-issuer">Spoken Tutorial Project, IIT Bombay &middot; 2024</div></div>
-      <div class="cert-card"><div class="cert-name">Python Programming</div><div class="cert-issuer">Spoken Tutorial Project, IIT Bombay &middot; 2024</div></div>
-      <div class="cert-card"><div class="cert-name">R Programming</div><div class="cert-issuer">Coursera &middot; 2024</div></div>
+      <div class="cert-card">
+        <div class="cert-name">Deploy &amp; Manage Generative AI Models</div>
+        <div class="cert-issuer">Google Cloud Career Launchpad &middot; 2025</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-name">Java Programming</div>
+        <div class="cert-issuer">Spoken Tutorial Project, IIT Bombay &middot; 2024</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-name">Python Programming</div>
+        <div class="cert-issuer">Spoken Tutorial Project, IIT Bombay &middot; 2024</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-name">R Programming</div>
+        <div class="cert-issuer">Coursera &middot; 2024</div>
+      </div>
     </div>
   </section>
 
-  <section class="section fade-up" id="contact">
+  <!-- CONTACT -->
+  <section class="section" id="contact">
     <p class="section-label">Contact</p>
     <div class="contact-wrap">
-      <div class="contact-heading">Let's build<br/>something<br/><span>together.</span></div>
+      <div class="contact-heading">Let's build<br>something<br><span>together.</span></div>
       <div class="contact-links">
         <a class="contact-link" href="mailto:ankalagowthamsai2005@gmail.com">
-          <div><div class="contact-link-label">Email</div><div>ankalagowthamsai2005@gmail.com</div></div><span>&#8599;</span>
+          <div><div class="contact-link-label">Email</div><div>ankalagowthamsai2005@gmail.com</div></div>
+          <span>&#8599;</span>
         </a>
         <a class="contact-link" href="https://linkedin.com/in/gowtham-sai-238r1" target="_blank">
-          <div><div class="contact-link-label">LinkedIn</div><div>gowtham-sai-238r1</div></div><span>&#8599;</span>
+          <div><div class="contact-link-label">LinkedIn</div><div>gowtham-sai-238r1</div></div>
+          <span>&#8599;</span>
         </a>
         <a class="contact-link" href="https://github.com/Gowtham-4256" target="_blank">
-          <div><div class="contact-link-label">GitHub</div><div>Gowtham-4256</div></div><span>&#8599;</span>
+          <div><div class="contact-link-label">GitHub</div><div>Gowtham-4256</div></div>
+          <span>&#8599;</span>
         </a>
         <a class="contact-link" href="tel:+918143669910">
-          <div><div class="contact-link-label">Phone</div><div>+91 8143669910</div></div><span>&#8599;</span>
+          <div><div class="contact-link-label">Phone</div><div>+91 8143669910</div></div>
+          <span>&#8599;</span>
         </a>
       </div>
     </div>
@@ -267,15 +337,6 @@ footer{border-top:1px solid #252529;padding:24px 48px;display:flex;align-items:c
   <span>&copy; 2025 Ankala Gowtham Sai</span>
   <span>Hyderabad, Telangana, India</span>
 </footer>
-
-<script>
-var obs = new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if(e.isIntersecting) e.target.classList.add('visible');
-  });
-},{threshold:0.1});
-document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
-</script>
 
 </body>
 </html>
